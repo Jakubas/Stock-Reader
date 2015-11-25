@@ -193,7 +193,7 @@ public class StockReaderGUI extends JFrame {
 				} catch(NumberFormatException e) {
 					n = 0;
 				}
-				DisplayLargestIncreases(n);
+				displayLargestIncreases(n);
 			}
 		});
 		btnIncreases.setToolTipText("Displays the largest price increases (percentage wise)");
@@ -212,7 +212,7 @@ public class StockReaderGUI extends JFrame {
 				} catch(NumberFormatException e) {
 					n = 0;
 				}
-				DisplayLargestDecreases(n);
+				displayLargestDecreases(n);
 			}
 		});
 		btnDecreases.setToolTipText("displays the largest price Decreases (percentage wise)");
@@ -294,7 +294,7 @@ public class StockReaderGUI extends JFrame {
 	 * @param stocksData an ArrayList of StockData objects
 	 * @param n the number of elements to display
 	 */
-	private void DisplayN(ArrayList<StockData> stocksData, int n) {
+	private void displayN(ArrayList<StockData> stocksData, int n) {
 		String str = "";
 		for(int i = 0; i < n && i < stocksData.size(); i++) {
 			StockData stockData = stocksData.get(i);
@@ -313,11 +313,11 @@ public class StockReaderGUI extends JFrame {
 	 * ArrayList of StockData objects
 	 * @param n the number of elements to display
 	 */
-	private void DisplayLargestIncreases(int n) {
+	private void displayLargestIncreases(int n) {
 		ArrayList<StockData> stocksData = setStockDataFields();
 		txtAreaStock.setText(String.format("%-17s%-17s%-17s%-25s%-25s\n", "Previous Date", "Previous Price", "Date", "Adjusted Closing Price", "% Change"));
 		Collections.sort(stocksData);
-		DisplayN(stocksData, n);
+		displayN(stocksData, n);
 	}
 	
 	/**
@@ -325,11 +325,11 @@ public class StockReaderGUI extends JFrame {
 	 * ArrayList of StockData objects
 	 * @param n the number of elements to display
 	 */
-	private void DisplayLargestDecreases(int n) {
+	private void displayLargestDecreases(int n) {
 		ArrayList<StockData> stocksData = setStockDataFields();
 		txtAreaStock.setText(String.format("%-17s%-17s%-17s%-25s%-25s\n", "Previous Date", "Previous Price", "Date", "Adjusted Closing Price", "% Change"));
 		Collections.sort(stocksData);
 		Collections.reverse(stocksData);
-		DisplayN(stocksData, n);
+		displayN(stocksData, n);
 	}
 }
